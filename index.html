@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Movie Reviews</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- AdSense placeholder -->
+  <!-- Replace the below script with your actual AdSense code -->
+  <script data-ad-client="ca-pub-xxxxxxxxxxxxxxx" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+  <header>
+    <h1>🎬 Movie Explorer</h1>
+  </header>
+
+  <!-- AdSense block placeholder -->
+  <div class="adsense-placeholder">
+    <!-- Google AdSense ad block goes here -->
+    <p>Ad Space</p>
+  </div>
+
+  <main id="movie-list"></main>
+
+  <footer>
+    <p>© 2025 Movie Explorer</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #111;
+  color: #fff;
+}
+
+header {
+  background-color: #e50914;
+  padding: 1rem;
+  text-align: center;
+  color: white;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.movie-card {
+  background-color: #1c1c1c;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.movie-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.movie-details {
+  padding: 15px;
+}
+
+.movie-details h2 {
+  font-size: 1.25rem;
+  margin: 0 0 10px;
+}
+
+.movie-details p {
+  margin: 0.3em 0;
+  color: #ccc;
+}
+
+.movie-details a {
+  color: #1db954;
+  text-decoration: none;
+}
+
+.adsense-placeholder {
+  background: #222;
+  color: #aaa;
+  text-align: center;
+  padding: 20px;
+  margin: 20px;
+  border: 1px dashed #444;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #222;
+  color: #999;
+}
+
+const movies = [
+  {
+    title: "Inception",
+    genre: "Sci-Fi, Thriller",
+    description: "A skilled thief is given a chance to erase his criminal record by implanting an idea into a target's subconscious.",
+    review: "9/10 - A mind-bending masterpiece with incredible visuals and storytelling.",
+    thumbnail: "https://i.imgur.com/Yo0dK3X.jpg",
+    trailer: "https://www.youtube.com/watch?v=YoHD9XEInc0"
+  },
+  {
+    title: "Interstellar",
+    genre: "Sci-Fi, Adventure",
+    description: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+    review: "9.5/10 - Beautiful, emotional, and epic space odyssey.",
+    thumbnail: "https://i.imgur.com/U6ZixOy.jpg",
+    trailer: "https://www.youtube.com/watch?v=zSWdZVtXT7E"
+  },
+  {
+    title: "The Dark Knight",
+    genre: "Action, Crime",
+    description: "Batman faces the Joker, a criminal mastermind who plunges Gotham into chaos.",
+    review: "10/10 - Iconic performances and gripping action make it a classic.",
+    thumbnail: "https://i.imgur.com/3jLPB46.jpg",
+    trailer: "https://www.youtube.com/watch?v=EXeTwQWrcwY"
+  }
+];
+
+function createMovieCard(movie) {
+  return `
+    <div class="movie-card">
+      <img src="${movie.thumbnail}" alt="${movie.title} poster" />
+      <div class="movie-details">
+        <h2>${movie.title}</h2>
+        <p><strong>Genre:</strong> ${movie.genre}</p>
+        <p><strong>Description:</strong> ${movie.description}</p>
+        <p><strong>Review:</strong> ${movie.review}</p>
+        <p><a href="${movie.trailer}" target="_blank">Watch Trailer 🎥</a></p>
+      </div>
+    </div>
+  `;
+}
+
+const movieList = document.getElementById("movie-list");
+movieList.innerHTML = movies.map(createMovieCard).join("");
